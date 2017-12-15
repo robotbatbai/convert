@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+     #product_info{
+      border-bottom: 1px solid #e7e7e7;
+     }
+  </style>
 </head>
 <body>
 
@@ -41,7 +46,7 @@
     </div>
     <div class="form-group">
       <label for="email">Short Description </label>
-      <textarea class="form-control" id="short_description" name="short_description" rows="5"></textarea>
+      <textarea class="form-control" id="short_description" name="short_description" rows="7"></textarea>
     </div>
     <div class="form-group">
       <label for="pwd">Review Video</label>
@@ -58,22 +63,19 @@
      <h2> Product Spec </h2>
      <div class="form-group">
       <?php for ($i=1; $i <11 ; $i++) { ?>
-        <input class="col-sm-6" type="text" placeholder="Spec Name " class="form-control" name="spec_name<?php echo $i; ?>"> 
-        <input class="col-sm-6" type="text" placeholder="Spec Description " class="form-control" name="spec_description[]"> 
+        <input class="col-sm-6" type="text"  class="form-control" name="spec_name[]"> 
+        <input class="col-sm-6" type="text"  class="form-control" name="spec_description[]"> 
       <?php } ?>     
     </div>
      
-    <h2> Product Include </h2>
+    <h2> Package Includes </h2>
      <div class="form-group">
-      <?php for ($i=1; $i <11 ; $i++) { ?>
-        <input class="col-sm-6" type="text" placeholder="Include Name " class="form-control" name="include_name[]"> 
-        <input class="col-sm-6" type="text" placeholder="Include Description " class="form-control" name="include_description[]"> 
-      <?php } ?>     
+        <textarea class="form-control"  name="package_include" rows="5"></textarea>
     </div>
-
    <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>
+
 
 </body>
 </html>
