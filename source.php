@@ -22,10 +22,10 @@
 			<div id="short_description"><?php echo $_POST["title"]; ?></div>
 			<div id="function_description">
 			<div id="Description_div_10">
-			<div id="Description_div_11">
-			<div id="Description_div_12"><span id="Description_span_13"></span></div>
-			<div id="Description_div_14">
-			<div id="Description_div_15">Flight time</div>
+				<div id="Description_div_11">
+					<div id="Description_div_12"><span id="Description_span_13"></span></div>
+					<div id="Description_div_14">
+						<div id="Description_div_15">Flight time</div>
 			<div id="Description_div_16">
 			<div id="Description_div_17"><?php echo $_POST["flight_time"]; ?></div>
 			<div id="Description_div_18">mins<sup id="SUP_19">[1]</sup></div>
