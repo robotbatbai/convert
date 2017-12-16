@@ -14,6 +14,18 @@
   </style>
 </head>
 <body>
+  <?php
+    $graph_list = array(
+        array("label" => "Flight Time", "name" => "flight_time", "unit" => "MINS"),
+        array("label" => "Speed", "name" => "flight_speed", "unit" => "KM/H"),
+        array("label" => "Control Range", "name" => "control_range", "unit" => "M"),
+        array("label" => "Video Resolution", "name" => "video_resolution", "unit" => ""),
+        array("label" => "Effective Pixels", "name" => "effective_pixels", "unit" => "MP"),
+        array("label" => "Gimbal", "name" => "gimbal", "unit" => ""),
+        array("label" => "", "name" => "sensor_range", "unit" => ""),
+        array("label" => "", "name" => "eyes", "unit" => "")
+        )
+   ?>
 
 <div class="container">
   <h2>Product Detail Form</h2>
@@ -23,26 +35,18 @@
       <input type="text" class="form-control" name="title">
     </div>
     <div class="form-group"> 
-    
-      <label class="col-sm-2" for="email">flight time </label>
-      <input class="col-sm-2" type="text" class="form-control" name="flight_time">
-  
-      <label class="col-sm-2" for="email">control range </label>
-      <input class="col-sm-2" type="text" class="form-control" name="control_range">
-
-      <label class="col-sm-2" for="email">speed</label>
-      <input class="col-sm-2" type="text" class="form-control" name="speed">
-    </div>
-    <div class="form-group">
-
-      <label class="col-sm-2" for="email">video resolution</label>
-      <input class="col-sm-2" type="text" class="form-control" name="video_resolution">
-
-      <label class="col-sm-2" for="email">onboard camera</label>
-      <input class="col-sm-2" type="text" class="form-control" name="onboard_camera">
-
-      <label class="col-sm-2" for="email">GPS </label>
-      <input class="col-sm-2" type="text" class="form-control" name="gps">
+      <?php foreach ($graph_list as $key => $value) { ?>
+       <?php if ($value["label"] != ""){ ?>
+          <input type="hidden" name="graph_label[]" value="<?php echo $value["label"]; ?>">
+          <label class="col-sm-2"> <?php echo $value["label"]; ?> </label>
+        <?php }else { ?>
+          <label class="col-sm-2"> Input Label </label>
+          <input class="col-sm-2" type="text" name="graph_label[]" value="">
+        <?php } ?>
+        <input type="hidden" name="graph_name[]" value="<?php echo $value["name"]; ?>">
+        <input type="hidden" name="graph_unit[]" value="<?php echo $value["unit"]; ?>">
+        <input class="col-sm-2" type="text" class="form-control" name="graph_value[]">
+      <?php } ?>
     </div>
     <div class="form-group">
       <label for="email">Short Description </label>

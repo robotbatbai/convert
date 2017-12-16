@@ -20,69 +20,29 @@
          <textarea class="form-control" id="short_description" rows="50">
 		<section id="first_description">
 			<div id="short_description"><?php echo $_POST["title"]; ?></div>
-			<div id="function_description">
-			<div id="Description_div_10">
-				<div id="Description_div_11">
-					<div id="Description_div_12"><span id="Description_span_13"></span></div>
-					<div id="Description_div_14">
-						<div id="Description_div_15">Flight time</div>
-			<div id="Description_div_16">
-			<div id="Description_div_17"><?php echo $_POST["flight_time"]; ?></div>
-			<div id="Description_div_18">mins<sup id="SUP_19">[1]</sup></div>
-			</div>
-			</div>
-			</div>
-			<div id="Description_div_20">
-			<div id="Description_div_21"><span id="Description_span_22"></span></div>
-			<div id="Description_div_23">
-			<div id="Description_div_24">Control range</div>
-			<div id="Description_div_25">
-			<div id="Description_div_26"><?php echo $_POST["control_range"]; ?></div>
-			<div id="Description_div_27">km<sup id="SUP_28">[2]</sup></div>
-			</div>
-			</div>
-			</div>
-			<div id="Description_div_29">
-			<div id="Description_div_30"><span id="Description_span_31"></span></div>
-			<div id="Description_div_32">
-			<div id="Description_div_33">Speed</div>
-			<div id="Description_div_34">
-			<div id="Description_div_35"><?php echo $_POST["speed"]; ?></div>
-			<div id="Description_div_36">km/h</div>
-			</div>
-			</div>
-			</div>
-			<div id="Description_div_37">
-			<div id="Description_div_38"><span id="Description_span_39"></span></div>
-			<div id="Description_div_40">
-			<div id="Description_div_41">Video resolution</div>
-			<div id="Description_div_42">
-			<div id="Description_div_43"><?php echo $_POST["video_resolution"]; ?></div>
-			<div id="Description_div_44"></div>
-			</div>
-			</div>
-			</div>
-			<div id="Description_div_45">
-			<div id="Description_div_46"><span id="Description_span_47"></span></div>
-			<div id="Description_div_48">
-			<div id="Description_div_49">Onboard Camera </div>
-			<div id="Description_div_50">
-			<div id="Description_div_51"><?php echo $_POST["onboard_camera"]; ?></div>
-			<div id="Description_div_52">M<sup id="SUP_53">[3]</sup></div>
-			</div>
-			</div>
-			</div>
-			<div id="Description_div_54">
-			<div id="Description_div_55"><span id="Description_span_56"></span></div>
-			<div id="Description_div_57">
-			<div id="Description_div_58">GPS </div>
-			<div id="Description_div_59">
-			<div id="Description_div_60"><?php echo $_POST["gps"]; ?></div>
-			<div id="Description_div_61">Directions</div>
-			</div>
-			</div>
-			</div>
-			</div>
+			<div class="graph_spec">
+				<?php 
+					$graph_label = $_POST["graph_label"];
+					$graph_unit = $_POST["graph_unit"];
+					$graph_name = $_POST["graph_name"];
+					$graph_value = $_POST["graph_value"];	
+				foreach ($graph_value as $key => $value) {
+					if ($value != ""){
+				?>
+					<div class="product_graph_box">
+				      <div class="product_graph_image"><span class="graph_image" id="graph_image_<?php echo $graph_name[$key]; ?>"></span></div>
+				      <div class="product_graph_info">
+				         <div class="product_graph_title"> <?php echo $graph_label[$key]; ?></div>
+				         <div class="product_graph_detail">
+				            <div class="product_graph_input"><?php echo $graph_value[$key]; ?></div>
+				            <div class="product_graph_unit"><?php echo $graph_unit[$key]; ?>
+				            </div>
+				         </div>
+				      </div>
+				  </div>
+				<?php 			
+					}
+				} ?>
 			</div>
 		</section>
 		<?php getTextAreaNewLine($_POST["short_description"]); ?>
