@@ -12,7 +12,7 @@
    	<?php  function getTextAreaNewLine($string){
    		$array = explode(PHP_EOL, $string);
    		foreach ($array as $key => $value) {
-   			echo $value."<br />";
+   			echo "<li>".$value."</li>";
    		}
    	} ?>
       <div class="container">
@@ -45,7 +45,7 @@
 				} ?>
 			</div>
 		</section>
-		<?php getTextAreaNewLine($_POST["short_description"]); ?>
+		<ul><?php getTextAreaNewLine($_POST["short_description"]); ?></ul>
 		<!-- split -->
 		<?php if ($_POST["review_video"] != "") { echo '<p><iframe src="https://www.youtube.com/embed/'.$_POST["review_video"].'" allowfullscreen="" width="560" height="315" frameborder="0"></iframe></p>';} ?>
 		<?php $image_list = $_POST["image"];
